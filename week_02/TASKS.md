@@ -135,8 +135,35 @@ Task 8 - Меню с функционалности
 Menu:
 1. Calculate Area
 2. Convert Temperature
-3. Display Information
+Enter your choice (1-2): _
+```
+
+Избирате опция 1 за смятане на температура и след това излиза:
+
+```cmd
+Choose the type of object:
+1. Triangle
+2. Rectangle
+3. Square
 Enter your choice (1-3): _
+```
+
+За съответната опция изреждате броя страни, които трябва да се въведат.
+Пример:
+
+
+Избирате опция `Triangle` и получавате:
+
+```cmd
+a: <enter 10>
+b: <enter 7>
+c: <enter 8>
+```
+
+Програмата завършва с:
+
+```cmd
+The Triangle's Area is 27.8.
 ```
 
 Избирате опция 2 за смятане на температура и след това излиза:
