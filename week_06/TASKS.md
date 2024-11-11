@@ -110,14 +110,15 @@
 
 Вход:
 ```
-1020
-1.5
-425
-4
+650
+2
+175
+3
 ```
 Изход:
 ```
-It will be a tough winter! More 180 liters wine needed.
+Good harvest this year! Total wine: 208 liters.
+33 liters left -> 11 liters per person.
 ```
 
 Вход:
@@ -142,7 +143,7 @@ It will be a tough winter! More 180 liters wine needed.
 
 Получаваме следното разпределение и визуализация:
 
-![alt text](../assets/histogram.png)
+![alt text](./assets/histogram.png)
 
 Примери:
 

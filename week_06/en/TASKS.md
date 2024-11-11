@@ -110,14 +110,15 @@ Examples:
 
 Input:
 ```
-1020
-1.5
-425
-4
+650
+2
+175
+3
 ```
 Output:
 ```
-It will be a tough winter! More 180 liters of wine needed.
+Good harvest this year! Total wine: 208 liters.
+33 liters left -> 11 liters per person.
 ```
 
 Input:
