@@ -1,59 +1,40 @@
 #include <iostream>
 
-void increment(int* num) {
-    *num += 1;
-}
+long convert(unsigned long number, unsigned short int k, unsigned short int r) { 
 
-void incrementByReference(int& num) {
-    num++;
-}
+	unsigned long reverseAnswer = 0;
+	
+	while (number != 0) { 
+		reverseAnswer  = reverseAnswer * 10 + number % r;
+		number /= k;
+	}
+	
+	unsigned long answer = 0;
+	
+	while (reverseAnswer  != 0) { 
+		answer = answer * 10 + reverseAnswer % 10;
+		reverseAnswer /= r;
+	}
+	
+ return answer;
 
-void incrementNoob(int num) {
-    num++;
-}
+} 
 
-void fillArr(int* arr, int lenght) {
-    for (int i = 0; i < lenght; i++) {
-        std::cin >> arr[i];
-    }
-}
+int main() { 
 
-void printArr(const int* arr, int lenght) {
-    for (int i = 0; i < lenght; i++) {
-        std::cout << arr[i];
-    }
-}
-
-void swap (int& a, int& b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
-
-void sortArr(int* arr, int length) {
-    for (int i = 0; i < length - 1; i++) {
-        for (int j = 0; j < length - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j+1]);
-            }
-        }  
-    }
-}
-
-int main() {
-    int num = 5;
-    int* ptr = &num;
-
-    int& num1 = num;
-    // std::cout << &num << std::endl;
-    // std::cout << *ptr;
-
-    // *ptr = 6;
-
-    int arr[5] = {7, 3, 1, 8, 6};
-
-    sortArr(arr, 5);
-    printArr(arr, 5);
-
-
+	unsigned long number;
+	
+	unsigned short int k;
+	unsigned short int r;
+	
+	do { 
+		std::cin >> number;
+	} while(number < 0);
+	
+	do { 
+	 std::cin >> k >> r;
+	} while( r < 2 || r > 10);
+	
+	std::cout << convert(number, k ,r);
+  return 0;
 }
