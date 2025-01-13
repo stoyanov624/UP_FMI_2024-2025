@@ -1,61 +1,70 @@
 #include <iostream>
 
-int* create(int newElement, int& size, int capacity) {
-    int* arr = new int[capacity];
-    size = 1;
-    
-    arr[0] = newElement;
+using namespace std; 
 
-    return arr;
+
+int pow(int a, int n)
+{
+	int newNumber = 1; 
+	while(n != 0)
+	{
+		newNumber = newNumber * a;
+		n--;
+	}
+	return newNumber; 
 }
 
-void resize(int*& arr, int size, int& capacity) {
-    capacity *= 2;
-    int* tempArr = new int[capacity];
 
-    for (size_t i = 0; i < size; i++) {
-        tempArr[i] = arr[i];
-    }
-
-    delete[] arr; // Free the old array's memory
-    arr = tempArr; // Point arr to the new array
+unsigned long long  reverceInDecimal(unsigned long number, unsigned int k)
+{
+	
+	unsigned long long newNumber = 0; 
+	for(int i  = 0; number != 0; i++)
+	{
+		newNumber += (number % 10) * pow(k, i);
+		number /= 10; 
+	}
+	return newNumber;
+	
 }
 
-void pushBack(int*& arr, int& size, int& capacity, int newElement) {
-    if (capacity <= size) {
-        resize(arr, size, capacity);
-    }
-    arr[size++] = newElement;
+
+void changeNumber(unsigned long long number, unsigned int k, unsigned int r)
+{
+	number = reverceInDecimal(number, k);
+	int newNumber[256];
+	int newNumberDigits = 0;
+	while(number != 0)
+	{
+		newNumber[newNumberDigits] = number % r; 
+		number/=r;
+		newNumberDigits++;
+	}
+	
+	while(newNumberDigits >= 0)
+	{
+		cout << newNumber[newNumberDigits];
+		newNumberDigits--;
+	}
+
 }
 
-void print(int* arr, int size) {
-    for (size_t i = 0; i < size; i++) {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
-}
 
-int main() {
-    int* arr = nullptr; // Uninitialized pointer
-    int size = 0;
-    int capacity = 1;
-
-    arr = create(5, size, capacity);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    pushBack(arr, size, capacity, 6);
-    print(arr, size);
-
-    std::cout << size << std::endl;
-    std::cout << capacity << std::endl;
-    
-    if (arr != nullptr) {
-        delete[] arr; // Free the memory
-    }
+int main()
+{
+	unsigned long long number; 
+	unsigned int k;
+	unsigned int r;
+	
+	
+	cout << "Enter a number: ";
+	cin >> number; 
+	
+	cout << endl << "Enter k: ";
+	cin >> k; 
+	cout << endl <<  "Enter r: "; 
+	cin >> r;
+	
+	changeNumber(number, k, r);
+	
 }
